@@ -1,0 +1,99 @@
+-> Interpretador:
+	adicionar na primeira linha do programa:
+		!#/bin/bash
+		#!/usr/bin/env bash
+	obs.:
+		A diferença está que a segunda tem maior chance de funcionar.
+
+
+-> Tornar executável:
+	chomd +x nomeScript.sh
+	Como saber se é executável:
+		ls -l nome_arquivo
+		test -x atualiza.sh; echo $? // retorna 0
+			é possivel troca test por [[ ]]
+				[[ -x atualiza.sh ]]; echo $?
+
+
+-> Executar script:
+	./nomeScript
+
+-> Redirecionar arquivo:
+	> : cria novo arquivo, mesmo que já exite arquivo com o mesmo nome
+	>>: sobreescreve no final do arquivo existente ou cria novo arquivo
+	touch: comando do sistema, que cria um novo arquivo, MAS, é usado para alterar data e horário. tem um desempenho menor, dê preferência para > ou >>
+
+-> Imprimir
+	echo " sla " // imprime sla
+	se echo -n "sla" // evita que pule uma linha
+
+-> Variavéis:
+	Definição: Espaço na memória onde armazenamos um informação
+		nomeVariavel=valorVariavel;
+	
+	Tipos de  dados:
+		Strings, numeros e vetores(listas)
+		nome="Bruno";
+		idade=20;
+		informacoesPessoais=["Bruno" 20]
+			informacoesPessoais[0]="Bruno"; informacoesPessoais[1]=20
+	
+	Tipos de variaveis:
+		Local: acessada somente pelo script
+			local: especifica para um bloco de cógido
+			global: pode ser acessada por todo o script
+			Obs.: por padrão, todas são globais. para tornar local, basta usar "local"
+		Ambiente: disponivel para o diretorio e seus filhos
+		Shell: variaveis especiais
+	
+	Constante: variavel com valor inalterado.
+		readonly nomeVariavel
+	
+	Destruir variavel: unset nomeVariavel
+
+	É possível atribuir um comando a uma variavel
+		desliga=$(shutdown -h now)
+		desliga=`shutdown -h now`
+
+	Acessar valor variavel:
+		Basta acrescentar $: $nomeVariavel
+	
+-> Input:
+	read -p "Digite seu nome: " nomeVariavel
+
+-> Vetores:  tipo de dados, que armazena diversos dados, ou seja, uma LISTA de dados.
+	Criando vetores:
+		nome[indice]=valor
+			fruta[1]="banana"
+			fruta[amarela]="banana"
+			fruta=("banana" "laranja" abacate")
+			obs.:
+				indice numero = vetor indexado
+				indice string = vetor associativo.
+			declare -a nomeArray = vetor indexado
+			declare -A nomeArray = vetor associativo.
+
+	Acessar valor:	
+		nome[indice]
+		nome[*] = todos os itens juntos
+		nome[@] = todos os itens, como strings separadas
+		!nome[@]/[*] = indices do array
+		nome[@]:inicio:fim = lista o array com um incio, sendo o "fim", opcional.
+			fruta[@]:1:4
+		#nome[@] = quantidade de itens
+
+-> Operações Arritiméticas: Operadores: + - / * % **
+	funciona basicamente como as outras linguagens.
+
+-> Parei na aula 9
+
+
+
+			
+
+
+
+
+
+
+
