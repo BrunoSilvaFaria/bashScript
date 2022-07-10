@@ -10,3 +10,4 @@ echo -n "Uptime: "
 uptime -p
 echo -n "Kernel: "
 uname -rms
+contrab -e 10:09
